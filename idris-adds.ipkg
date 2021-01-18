@@ -1,0 +1,7 @@
+package idris-adds
+
+modules = Data.List.Additions,
+	  Data.Vect.Additions,
+  	  Data.String.NonEmptyString
+
+depends = contrib
