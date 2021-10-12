@@ -1,8 +1,10 @@
-module Data.List.Additions
+module Data.List.IsElemBy
 
 import Data.So
 import Data.List
 import Data.List.Elem
+
+%default total
 
 neitherHereNorThere : {0 p : a -> Bool}
                    -> (notP : So (not (p x)))

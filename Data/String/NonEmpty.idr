@@ -1,6 +1,8 @@
-module Data.String.NonEmptyString
+module Data.String.NonEmpty
 
 import Data.List
+
+%default total
 
 export
 data NonEmptyString: Type where

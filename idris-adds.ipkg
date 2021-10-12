@@ -1,8 +1,9 @@
 package idris-adds
 
-modules = Data.List.Additions,
-	  Data.Nat.Additions,
-	  Data.Vect.Additions,
-  	  Data.String.NonEmptyString
+modules = Data.List.DeleteBy
+        , Data.List.IsElemBy
+	, Data.Nat.MultReduces
+  	, Data.String.NonEmpty
+	, Data.Vect.Rotate
 
 depends = contrib

@@ -1,8 +1,10 @@
-module Data.Vect.Additions
+module Data.Vect.Rotate
 
 import Data.Vect
 import Data.Vect.Elem
 import Data.Nat
+
+%default total
 
 export
 rotateTo' : {m : _} -> (xs : Vect m a) -> (e : Elem x xs) -> (acc : Vect n a) -> Vect (m + n) a
@@ -29,6 +31,6 @@ namespace Elem
   export
   rotateTo : {n : _} -> (xs : Vect n a) -> (offset : Elem x xs) -> (index : Elem y xs) -> (zs : Vect n a ** z ** Elem z zs)
   rotateTo xs offset index = let idx = elemToFin index 
-                                 rotated = Vect.Additions.rotateTo xs offset in
+                                 rotated = Vect.Rotate.rotateTo xs offset in
                                  (rotated ** indexElem idx rotated)
 
