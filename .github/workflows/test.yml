@@ -1,0 +1,54 @@
+
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  schedule:
+    - cron: '0 1 * * *'
+
+jobs:
+  idris-04:
+    runs-on: ubuntu-latest
+    container: mattpolzin2/idris-docker:0.4.0
+
+    steps:
+      - name: Install Dependencies
+        run: apt-get update && apt-get -y install git
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: make
+#      - name: Test
+#        run: make test
+
+  idris-05:
+    runs-on: ubuntu-latest
+    container: mattpolzin2/idris-docker:0.5.1
+
+    steps:
+      - name: Install Dependencies
+        run: apt-get update && apt-get -y install git
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: make
+#      - name: Test
+#        run: make test
+
+  nightly-idris:
+    runs-on: ubuntu-latest
+    container: mattpolzin2/idris-docker:nightly
+
+    steps:
+      - name: Install Dependencies
+        run: apt-get update && apt-get -y install git
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: make
+#      - name: Test
+#        run: make test
+
