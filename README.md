@@ -13,6 +13,9 @@ Offers the `deleteBy'` function that behaves like the `base` library's `Data.Lis
 ### `Data.List.IsElemBy`
 Offers the `isElemBy` function that behaves like the `base` library's `Data.List.Elem.isElem` but it accepts a predicate instead of relying on equality to determine whether an element is in the list. It therefore decidably produces the element matched, the proof that the element matches the predicate, and the proof that the element is in the list (`Dec (x ** (p x = True, Elem x xs))`).
 
+### `Data.List.PrefixSuffix`
+Offers the `PrefixSuffix` type and the `dropPrefix`/`dropSuffix` functions that decidably divide lists into their prefix and suffix.
+
 ## Nat
 The following micro-modules have general utility when working with natural numbers.
 
