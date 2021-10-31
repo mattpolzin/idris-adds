@@ -26,7 +26,7 @@ The following micro-modules have general utility when working with natural numbe
 ### [`Data.Nat.MultReduces`](./Data/Nat/MultReduces.idr)
 Offers `multReduces`, proof that the same number `y` multiplied by different multiplicands on either side of an equality presents an opportunity to reduce by some multiple of `y`.
 
-## Pagination
+## [`Data.Pagination`](./Data/Pagination.idr)
 The `Pagination` module offers a type representing the pagination of data and utility functions for working with it.
 
 For example, if you want to represent meta pages (i.e. the structure of pages without content on them) for an API request you might create a pagination that splits 100 items up with 10 items on each page and then traverse over the pagination making API requests for each page:
