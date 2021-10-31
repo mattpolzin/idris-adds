@@ -249,9 +249,11 @@ mutual
         => remainingItems `GT` 0
         => PaginationShape remainingItems perPage page
   pagesHelper page remainingItems perPage with (isLT perPage remainingItems)
-    _ | (Yes prf)   = let (remainder ** (remainderOk, remainderGtZ)) = lemma prf
-                      in  nonTerminalPage page remainingItems perPage @{remainderOk}
-    _ | (No contra) = Last page remainingItems () @{notLTImpliesGTE contra}
+    pagesHelper page remainingItems perPage | (Yes prf) =
+      let (remainder ** (remainderOk, remainderGtZ)) = lemma prf
+      in  nonTerminalPage page remainingItems perPage @{remainderOk}
+    pagesHelper page remainingItems perPage | (No contra) =
+      Last page remainingItems () @{notLTImpliesGTE contra}
 
 ||| Create a series of pages with a certain number of items on each
 ||| page such that the given number of total items all fit on one of
