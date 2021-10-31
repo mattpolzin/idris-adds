@@ -22,6 +22,21 @@ The following micro-modules have general utility when working with natural numbe
 ### `Data.Nat.MultReduces`
 Offers `multReduces`, proof that the same number `y` multiplied by different multiplicands on either side of an equality presents an opportunity to reduce by some multiple of `y`.
 
+## Pagination
+The `Pagination` module offers a type representing the pagination of data and utility functions for working with it.
+
+For example, if you want to represent meta pages (i.e. the structure of pages without content on them) for an API request you might create a pagination that splits 100 items up with 10 items on each page and then traverse over the pagination making API requests for each page:
+```idris
+let pgs : MetaPagination 100 10 _ = metaPages 100 10
+in  traverse' (\perPage,pageIdx,_,_ => apiRequest (perPage * pageIdx) perPage) pgs
+```
+
+You also might want to take 100 items and paginate them similarly:
+```idris
+let pgs : Pagination 100 10 _ (List Int) = pages [1..100] 10
+in  traverse printLn pgs
+```
+
 ## String
 The following micro-modules have general utility when working with strings.
 

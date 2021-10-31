@@ -7,6 +7,7 @@ modules = Data.List.DeleteBy
         , Data.List.PrefixSuffix
         , Data.Nat.MultReduces
         , Data.String.NonEmpty
+        , Data.Pagination
         , Data.Vect.Rotate
 
 depends = contrib
