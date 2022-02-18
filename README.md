@@ -31,7 +31,7 @@ The `Pagination` module offers a type representing the pagination of data and ut
 
 For example, if you want to represent meta pages (i.e. the structure of pages without content on them) for an API request you might create a pagination that splits 100 items up with 10 items on each page and then traverse over the pagination making API requests for each page:
 ```idris
-let pgs : MetaPagination 100 10 _ = metaPages 100 10
+let pgs : PaginationShape 100 10 _ = metaPages 100 10
 in  traverse' (\perPage,pageIdx,_,_ => apiRequest (perPage * pageIdx) perPage) pgs
 ```
 
