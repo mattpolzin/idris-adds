@@ -19,3 +19,8 @@ clean:
 
 install:
 	$(IDRIS) --install $(PACKAGE)
+
+.PHONY: install-with-src
+
+install-with-src:
+	$(IDRIS) --install-with-src $(PACKAGE)
