@@ -97,7 +97,7 @@ lemma : {w : _}
 lemma {w = []} f g z with (fullListIsPrefixPlusSuffix z)
   lemma {w = []} f g z | contra = f contra
 lemma {w = (w :: ws)} f g z with (fst . consInjective $ fullListIsPrefixPlusSuffix z)
-  lemma {w = (w :: ws)} f g z | Refl = g (ws ** tail {y=w} z)
+  lemma {w = (_ :: ws)} f g z | Refl = g (ws ** tail z)
 
 absurdXsYs : {0 xs, ys : List _} -> Not (x = y) -> Not (x :: xs = y :: ys)
 absurdXsYs f Refl = f Refl
