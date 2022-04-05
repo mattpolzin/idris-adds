@@ -236,11 +236,11 @@ mutual
                  => perPage `GT` 0
                  => remainder `GT` 0
                  => PaginationShape remainingItems perPage page
-  nonTerminalPage page remainingItems perPage with (sym remainingOk)
-    nonTerminalPage page (remainder + perPage) perPage | Refl =
-      NonTerminal page () $
+  nonTerminalPage page remainingItems perPage @{remainingOk} @{pGTz} @{rGTz} with (sym remainingOk)
+    nonTerminalPage page (remainder + perPage) perPage @{remainingOk} @{pGTz} @{rGTz} | Refl =
+      NonTerminal page {perPage} {remainder} () @{rGTz} $
         -- we know this is total because remainder is strictly less than remainingItems
-        assert_total (pagesHelper (S page) remainder perPage)
+        assert_total (pagesHelper (S page) remainder perPage @{pGTz} @{rGTz})
 
   pagesHelper : (page : Nat)
         -> (remainingItems : Nat)
