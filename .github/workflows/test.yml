@@ -10,45 +10,23 @@ on:
     - cron: '0 1 * * *'
 
 jobs:
-  idris-04:
+  linux:
     runs-on: ubuntu-latest
-    container: mattpolzin2/idris-docker:0.4.0
-
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - mattpolzin2/idris-docker:0.4.0
+          - mattpolzin2/idris-docker:0.5.1
+          - mattpolzin2/idris-docker:0.6.0
+          - mattpolzin2/idris-docker:nightly
+    container: ${{ matrix.image }}
     steps:
       - name: Install Dependencies
         run: apt-get update && apt-get -y install git
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Build
         run: make
 #      - name: Test
 #        run: make test
-
-  idris-05:
-    runs-on: ubuntu-latest
-    container: mattpolzin2/idris-docker:0.5.1
-
-    steps:
-      - name: Install Dependencies
-        run: apt-get update && apt-get -y install git
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Build
-        run: make
-#      - name: Test
-#        run: make test
-
-  nightly-idris:
-    runs-on: ubuntu-latest
-    container: mattpolzin2/idris-docker:nightly
-
-    steps:
-      - name: Install Dependencies
-        run: apt-get update && apt-get -y install git
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Build
-        run: make
-#      - name: Test
-#        run: make test
-
