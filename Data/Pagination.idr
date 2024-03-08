@@ -63,14 +63,14 @@ PaginationShape items perPage page = Pagination items perPage page ()
 export
 Uninhabited (Pagination 0 _ _ _) where
   uninhabited (Last _ _ _) impossible
-  uninhabited (NonTerminal _ {perPage=0}     {remainder=0} @{_} @{perPageGTZ} _ _) = absurd perPageGTZ
+  uninhabited (NonTerminal _ {perPage=0}     {remainder=0} @{_} @{perPageGTZ} _ _) = succNotLTEpred perPageGTZ
   uninhabited (NonTerminal _ {perPage=(S k)} {remainder=0}                    _ _) impossible
   uninhabited (NonTerminal _                 {remainder=(S k)}                _ _) impossible
 
 export
 Uninhabited (Pagination _ 0 _ _) where
-  uninhabited (Last _ @{_} @{perPageGTZ} _ _) = absurd perPageGTZ
-  uninhabited (NonTerminal _ @{_} @{perPageGTZ} _ _) = absurd perPageGTZ
+  uninhabited (Last _ @{_} @{perPageGTZ} _ _) = succNotLTEpred perPageGTZ
+  uninhabited (NonTerminal _ @{_} @{perPageGTZ} _ _) = succNotLTEpred perPageGTZ
 
 --
 -- Accessors
