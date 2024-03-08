@@ -16,9 +16,9 @@ jobs:
       fail-fast: false
       matrix:
         image:
-          - mattpolzin2/idris-docker:0.4.0
           - mattpolzin2/idris-docker:0.5.1
           - mattpolzin2/idris-docker:0.6.0
+          - mattpolzin2/idris-docker:0.7.0
           - mattpolzin2/idris-docker:nightly
     container: ${{ matrix.image }}
     steps:

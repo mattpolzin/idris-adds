@@ -4,7 +4,7 @@ A collection of occasionally useful modules.
 
 These modules are organized around the smallest useful units of functionality rather than collected under relevant types. This means you can take what you need and not need to spend time building against the rest. I'll call these micro-modules.
 
-This package currently supports Idris 2 versions 0.4.0, 0.5.1, and the nightly builds.
+This package currently supports Idris 2 versions 0.5.1, 0.6.0, 0.7.0, and the nightly builds.
 
 Install this package by running `make install`. Use it by depending upon `idris-adds` with `idris2 -p idris-adds` or by specifying in your ipkg's `depends` list.
 
