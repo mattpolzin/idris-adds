@@ -10,4 +10,4 @@ modules = Data.List.DeleteBy
         , Data.Pagination
         , Data.Vect.Rotate
 
-depends = contrib
+depends = base,contrib
