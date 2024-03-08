@@ -1,6 +1,6 @@
 package idris-adds
 
-version = 0.3.0
+version = 0.4.1
 
 modules = Data.List.DeleteBy
         , Data.List.IsElemBy
