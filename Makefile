@@ -1,5 +1,5 @@
 
-IDRIS := idris2
+idris2 ?= idris2
 
 PACKAGE = idris-adds.ipkg
 
@@ -8,19 +8,19 @@ all: build
 .PHONY: build
 
 build:
-	$(IDRIS) --build $(PACKAGE)
+	$(idris2) --build $(PACKAGE)
 
 .PHONY: clean
 
 clean:
-	$(IDRIS) --clean $(PACKAGE)
+	$(idris2) --clean $(PACKAGE)
 
 .PHONY: install
 
 install:
-	$(IDRIS) --install $(PACKAGE)
+	$(idris2) --install $(PACKAGE)
 
 .PHONY: install-with-src
 
 install-with-src:
-	$(IDRIS) --install-with-src $(PACKAGE)
+	$(idris2) --install-with-src $(PACKAGE)
